@@ -5,6 +5,7 @@ use Illuminate\Log\Writer;
 
 /**
  * Class EventDispatcher
+ *
  * @package Application\Eventing
  */
 
