@@ -1,0 +1,25 @@
+{
+    "name": "Tectonic Application Support",
+    "description": "A collection of libraries and classes for supporting Laravel 4 application development.",
+    "keywords": ["library", "ddd", "laravel"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "laravel/framework": "4.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tectonic\\Application\\": "Tectonic/Application/",
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "mockery/mockery": "dev-master",
+        "orchestra/testbench": "2.1.*"
+    }
+}
