@@ -1,5 +1,5 @@
 {
-    "name": "Tectonic Application Support",
+    "name": "tectonic/application-support",
     "description": "A collection of libraries and classes for supporting Laravel 4 application development.",
     "keywords": ["library", "ddd", "laravel"],
     "license": "MIT",
