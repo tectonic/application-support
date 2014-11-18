@@ -70,12 +70,9 @@ class ValidationCommandBus implements CommandBusInterface
 	{
 		$validatorClass = $this->getValidatorClassName($command);
 
-		try {
+        if (class_exists($validatorClass)) {
 			$validator = $this->app->make($validatorClass);
 			$validator->validate($command);
-		}
-		catch (ReflectionException $e) {
-			return;
 		}
 	}
 
