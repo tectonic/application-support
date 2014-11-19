@@ -70,8 +70,7 @@ class ValidationCommandBus implements CommandBusInterface
 		$validatorClass = $this->getValidatorClassName($command);
 
         if (class_exists($validatorClass)) {
-			$validator = $this->app->make($validatorClass);
-            $validator->setInput($command->toArray());
+			$validator = $this->app->make($validatorClass, [$command->toArray()]);
 			$validator->validate();
 		}
 	}

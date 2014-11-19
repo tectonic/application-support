@@ -1,5 +1,4 @@
 <?php
-
 namespace Tests\Application\Validation;
 
 use Tectonic\Application\Validation\ValidationCommandBus;
