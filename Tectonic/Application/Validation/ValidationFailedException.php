@@ -10,7 +10,7 @@ class ValidationFailedException extends \Exception implements JsonableInterface
      *
      * @var string
      */
-    protected $message = 'Validation failed. Please check the information provided and try again.';
+    protected $message = 'Validator failed. Please check the information provided and try again.';
 
     /**
      * Stores an array of errors that can be returned along with the exception.

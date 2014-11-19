@@ -1,10 +1,11 @@
 <?php
 namespace Tests\Stubs;
 
-class StubValidator
+use Tectonic\Application\Validation\Validator;
+
+class StubValidator extends Validator
 {
-    public function validate()
-    {
-        return true;
-    }
+    protected $rules = [
+        'name' => 'required'
+    ];
 }
