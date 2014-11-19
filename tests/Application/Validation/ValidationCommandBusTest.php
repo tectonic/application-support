@@ -4,7 +4,7 @@ namespace Tests\Application\Validation;
 
 use Tectonic\Application\Validation\ValidationCommandBus;
 use Mockery as m;
-use Tests\Stubs\StubCommand;
+use Tests\Stubs\Commands\StubCommand;
 
 class ValidationCommandBusTest extends \Tests\TestCase
 {

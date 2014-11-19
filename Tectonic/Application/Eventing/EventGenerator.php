@@ -1,4 +1,5 @@
-<?php namespace Tectonic\Application\Eventing;
+<?php
+namespace Tectonic\Application\Eventing;
 
 /**
  * Trait EventGenerator

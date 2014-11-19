@@ -1,5 +1,4 @@
 <?php
-
 namespace Tectonic\Application\Eventing;
 
 use ReflectionClass;

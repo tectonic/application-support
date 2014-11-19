@@ -1,4 +1,5 @@
-<?php namespace Tectonic\Application\Validation;
+<?php
+namespace Tectonic\Application\Validation;
 
 use Illuminate\Support\Contracts\JsonableInterface;
 

@@ -2,7 +2,7 @@
 
 namespace Tests\Application\Commanding;
 
-use Tests\Stubs\StubCommand;
+use Tests\Stubs\Commands\StubCommand;
 
 class CommandTest extends \Tests\TestCase
 {

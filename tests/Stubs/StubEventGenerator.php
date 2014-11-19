@@ -1,4 +1,5 @@
-<?php namespace Tests\Stubs;
+<?php
+namespace Tests\Stubs;
 
 use Tectonic\Application\Eventing\EventGenerator;
 

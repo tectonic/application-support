@@ -1,5 +1,4 @@
 <?php
-
 namespace Tectonic\Application\Validation;
 
 use Tectonic\Application\Commanding\Command;

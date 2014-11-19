@@ -1,6 +1,5 @@
 <?php
-
-namespace Tests\Stubs;
+namespace Tests\Stubs\Commands;
 
 class StubCommandHandler
 {

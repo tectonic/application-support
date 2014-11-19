@@ -1,5 +1,4 @@
 <?php
-
 namespace Tectonic\Application\Commanding;
 
 class CommandHandlerNotFoundException extends \Exception

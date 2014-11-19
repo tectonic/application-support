@@ -1,4 +1,5 @@
-<?php namespace Tectonic\Application\Commanding;
+<?php
+namespace Tectonic\Application\Commanding;
 
 /**
  * Class CommandTranslator
@@ -21,7 +22,7 @@ class CommandTranslator
      */
     public function getCommandHandler(Command $command)
 	{
-		$handler = str_replace('Command', 'CommandHandler', get_class($command));
+		$handler = preg_replace('/Command$/', 'CommandHandler', get_class($command));
 
 		if (!class_exists($handler)) {
             throw new CommandHandlerNotFoundException($handler);

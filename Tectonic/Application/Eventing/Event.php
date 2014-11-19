@@ -1,4 +1,5 @@
-<?php namespace Tectonic\Application\Eventing;
+<?php
+namespace Tectonic\Application\Eventing;
 
 use Illuminate\Support\Contracts\ArrayableInterface;
 use Illuminate\Support\Contracts\JsonableInterface;

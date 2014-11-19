@@ -1,5 +1,4 @@
 <?php
-
 namespace Tectonic\Application\Commanding;
 
 use Illuminate\Container\Container;

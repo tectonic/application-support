@@ -1,8 +1,7 @@
 <?php
-
 namespace Tests\Application\Commanding;
 
-use Tests\Stubs\StubCommand;
+use Tests\Stubs\Commands\StubCommand;
 use Tectonic\Application\Commanding\CommandTranslator;
 use Mockery as m;
 
@@ -13,7 +12,7 @@ class CommandTranslatorTest extends \Tests\TestCase
 		$command = new StubCommand;
 		$translator = new CommandTranslator;
 
-		$this->assertEquals($translator->getCommandHandler($command), 'Tests\Stubs\StubCommandHandler');
+		$this->assertEquals($translator->getCommandHandler($command), 'Tests\Stubs\Commands\StubCommandHandler');
 	}
 
 	public function testFailedCommandHandlerResolution()
