@@ -27,10 +27,10 @@ class EventDispatcher
      * @param Writer $log
      */
     public function __construct(Dispatcher $event, Writer $log)
-	{
-		$this->event = $event;
-		$this->log = $log;
-	}
+    {
+        $this->event = $event;
+        $this->log = $log;
+    }
 
     /**
      * Dispatches the array of events, firing off the appropriate event name for each and logging the event fired.
@@ -38,33 +38,37 @@ class EventDispatcher
      * @param array $events
      */
     public function dispatch(array $events)
-	{
-		foreach ($events as $event) {
-			$eventName = $this->getEventName($event);
+    {
+        foreach ($events as $event) {
+            $eventName = $this->getEventName($event);
 
-            // We fire off the debug information BEFORE the event is fired. Reason being is that we
-            // want this log and information if the event fails for whatever reason.
-			$this->log->info("$eventName was fired with: ".$event->toJson());
+            try {
+                $this->event->fire($eventName, $event);
+                $this->log->info('Event succeeded.', [$event]);
+            }
+            catch (Exception $e) {
+                $this->log->info('Event failed.', [$event, $e]);
 
-			$this->event->fire($eventName, $event);
-		}
-	}
+                throw $e;
+            }
+        }
+    }
 
-	/**
+    /**
      * Retrieve the event name for a given event. The string returned will be in dot notation.
      * For example, if the event raised is called Domain\UserHasRegisteredToday then the event fired would be:
      *
-     * Domain.UserHasRegisteredToday
+     * Domain.UserHasRegistered
      *
      * Think of it as dot notation for PHP namespaces.
      *
-	 * @param Event $event
-	 * @return string
-	 */
-	protected function getEventName(Event $event)
-	{
-		$eventName = str_replace('\\', '.', get_class($event));
+     * @param Event $event
+     * @return string
+     */
+    protected function getEventName(Event $event)
+    {
+        $eventName = str_replace('\\', '.', get_class($event));
 
-		return $eventName;
-	}
+        return $eventName;
+    }
 }

@@ -1,4 +1,5 @@
-<?php namespace Tests\Application\Eventing;
+<?php
+namespace Tests\Application\Eventing;
 
 use Tectonic\Application\Eventing\EventDispatcher;
 use Mockery as m;
@@ -12,20 +13,24 @@ class EventDispatcherTest extends \Tests\TestCase
 
     public function setUp()
     {
-        $this->illuminateDispatcher = m::mock('Illuminate\Events\Dispatcher');
-        $this->logger = m::mock('Illuminate\Log\Writer');
+        parent::setUp();
+
+        $this->illuminateDispatcher = m::spy('Illuminate\Events\Dispatcher');
+        $this->logger = m::spy('Illuminate\Log\Writer');
 
         $this->dispatcher = new EventDispatcher($this->illuminateDispatcher, $this->logger);
     }
 
-	public function testGenerator()
+	public function testDispatcher()
 	{
-        $event = new StubEvent('value');
-        $events = [$event];
+        // Arrange/given
+        $events = [new StubEvent('value')];
 
-        $this->logger->shouldReceive('info')->once()->with('Tests.Stubs.StubEvent was fired with: {"property":"value"}');
-        $this->illuminateDispatcher->shouldReceive('fire')->once()->with('Tests.Stubs.StubEvent', $event);
-
+        // Act/when
 		$this->dispatcher->dispatch($events);
+
+        // Assert/then
+        $this->illuminateDispatcher->shouldHaveReceived('fire')->once();
+        $this->logger->shouldHaveReceived('info')->once();
 	}
 }
