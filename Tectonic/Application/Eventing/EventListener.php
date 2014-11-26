@@ -1,8 +1,6 @@
 <?php
 namespace Tectonic\Application\Eventing;
 
-use ReflectionClass;
-
 class EventListener
 {
 	/**
@@ -28,9 +26,7 @@ class EventListener
 	 */
 	protected function getEventName(Event $event)
 	{
-		$eventName = (new ReflectionClass($event))->getShortName();
-
-		return $eventName;
+		return class_basename($event);
 	}
 
 	/**

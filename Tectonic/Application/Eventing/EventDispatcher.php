@@ -9,7 +9,6 @@ use Illuminate\Log\Writer;
  *
  * @package Application\Eventing
  */
-
 class EventDispatcher
 {
     /**
@@ -41,16 +40,9 @@ class EventDispatcher
     {
         foreach ($events as $event) {
             $eventName = $this->getEventName($event);
-
-            try {
-                $this->event->fire($eventName, $event);
-                $this->log->info('Event succeeded.', [$event]);
-            }
-            catch (Exception $e) {
-                $this->log->info('Event failed.', [$event, $e]);
-
-                throw $e;
-            }
+            
+            $this->log->info("New event [$eventName]", [get_object_vars($event)]);
+            $this->event->fire($eventName, $event);
         }
     }
 
