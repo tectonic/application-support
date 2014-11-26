@@ -40,8 +40,8 @@ class EventDispatcher
     {
         foreach ($events as $event) {
             $eventName = $this->getEventName($event);
-            
-            $this->log->info("New event [$eventName]", [get_object_vars($event)]);
+
+            $this->log->info("New event [$eventName]", get_object_vars($event));
             $this->event->fire($eventName, $event);
         }
     }

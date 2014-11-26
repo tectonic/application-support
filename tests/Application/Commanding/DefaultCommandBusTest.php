@@ -12,6 +12,7 @@ class DefaultCommandBusTest extends \Tests\TestCase
         $command = m::mock('Tectonic\Application\Commanding\Command');
         $container = m::mock('Illuminate\Container\Container')->makePartial();
         $translator = m::mock('Tectonic\Application\Commanding\CommandTranslator')->makePartial();
+        $logger = m::spy('Illuminate\Log\Writer');
 
         $translator->shouldReceive('getCommandHandler')->with($command)->andReturn('handler');
 
@@ -19,9 +20,10 @@ class DefaultCommandBusTest extends \Tests\TestCase
         $container->shouldReceive('handle')->once()->with($command)->andReturn('execution result');
 
 
-		$commandBus = new DefaultCommandBus($container, $translator);
+		$commandBus = new DefaultCommandBus($container, $translator, $logger);
         $response = $commandBus->execute($command);
 
 		$this->assertEquals($response, 'execution result');
+        $logger->shouldHaveReceived('info')->once();
 	}
 }
