@@ -7,6 +7,11 @@
         "php": ">=5.4.0",
         "laravel/framework": "~5.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "4.2.*",
+        "orchestra/testbench": "3.0.*",
+        "mockery/mockery": "dev-master@dev"
+    },
     "autoload": {
         "psr-4": {
             "Tectonic\\Application\\": "Tectonic/Application/",
@@ -16,10 +21,6 @@
     "config": {
         "preferred-install": "dist"
     },
-    "minimum-stability": "stable",
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*",
-        "mockery/mockery": "dev-master",
-        "orchestra/testbench": "2.2.*"
-    }
+    "minimum-stability": "dev"
+
 }

@@ -1,9 +1,9 @@
 <?php
 namespace Tectonic\Application\Commanding;
 
-use Illuminate\Support\Contracts\ArrayableInterface;
+use Illuminate\Contracts\Support\Arrayable;
 
-class Command implements ArrayableInterface
+class Command implements Arrayable
 {
 	/**
 	 * Returns an array of properties the command has registered.

@@ -1,10 +1,10 @@
 <?php
 namespace Tectonic\Application\Validation;
 
-use Illuminate\Support\Contracts\JsonableInterface;
+use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Validation\Validator as LaravelValidator;
 
-class ValidationException extends \Exception implements JsonableInterface
+class ValidationException extends \Exception implements Jsonable
 {
     /**
      * The default message for all validation. This gets returned along with the errors.

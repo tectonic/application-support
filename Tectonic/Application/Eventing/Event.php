@@ -1,15 +1,15 @@
 <?php
 namespace Tectonic\Application\Eventing;
 
-use Illuminate\Support\Contracts\ArrayableInterface;
-use Illuminate\Support\Contracts\JsonableInterface;
+use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Contracts\Support\Arrayable;
 
 /**
  * Class Event
  * @package Application\Eventing
  */
 
-abstract class Event implements JsonableInterface, ArrayableInterface
+abstract class Event implements Jsonable, Arrayable
 {
     /**
      * When the dispatcher fires off each of the events, logging may be required. This provides
