@@ -1,3 +1,7 @@
+# Deprecated
+
+This package will no longer be maintained. We use Laravel here at the offices, which now has a rather nice Command Bus pipeline implementation. Anyone who would like to take over this project, please let us know.
+
 # Application support
 
 This repository is a set of classes and utilities that are designed to aid in Laravel 4 development by setting up a defacto standard or approach to certain development methods. It is an amalgamation of various community sources and inspirational projects, including Jeffrey Way's Domain driven design series, as well as the Laravel.io project. It also includes some extra features and functionality, and will continue to grow as community needs expand.
